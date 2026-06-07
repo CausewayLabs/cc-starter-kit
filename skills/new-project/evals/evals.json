@@ -1,0 +1,26 @@
+{
+  "skill_name": "new-project",
+  "evals": [
+    {
+      "id": 0,
+      "name": "web-app-default",
+      "prompt": "Start a new project called pricewatch — it's going to be a Next.js dashboard. Create the project folder under PARENT_DIR.",
+      "expected_output": "Project root 'pricewatch' under PARENT_DIR. Code-free root containing memory/ (which includes a memory/templates/ reference library), CLAUDE.md, .context.md, .gitignore, run.bat, and an initialized git repo. A code subfolder named 'app' (no clash for web), empty except .gitkeep. Memory docs (.context.md / Codebase Guide.md) note that code lives in app/. No application code scaffolded.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "android-clash",
+      "prompt": "Set up a new Android project called fieldlog. Put it under PARENT_DIR.",
+      "expected_output": "Project root 'fieldlog' under PARENT_DIR with the same code-free root layout. Critically, the code subfolder is NOT named 'app' (Android Gradle reserves 'app') — it falls back to 'application', 'fieldlog', or 'src', and the choice is stated. No application scaffolded.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "no-stack",
+      "prompt": "New project, name it tessellate. I haven't decided the stack yet. Stick it under PARENT_DIR.",
+      "expected_output": "Project root 'tessellate' under PARENT_DIR with the full code-free root layout. Code subfolder defaults to 'app' (no conflicting stack). Empty shell, nothing scaffolded.",
+      "files": []
+    }
+  ]
+}
