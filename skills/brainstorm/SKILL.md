@@ -19,7 +19,7 @@ This skill has two modes depending on whether a plan path is provided as the ski
 **Check the skill argument first — before anything else:**
 
 - **No argument**: Enter Brainstorm Mode.
-- **Plan path provided** (e.g. `/brainstorm D:/Projects/MyApp/plans/my-feature.md`): Skip directly to Coordinator Mode.
+- **Plan path provided** (e.g. `/brainstorm ~/Projects/MyApp/plans/my-feature.md`): Skip directly to Coordinator Mode.
 
 ---
 
@@ -37,7 +37,7 @@ When the user describes their idea, they may reference software, services, libra
    - `README.md` — general project description
    - Any `docs/`, `memory/`, or `plans/` folders
 
-2. **If the user mentions or implies a project location** (e.g. "in my dashboard app", "in the D:/Projects/Foo project"), look there for the same files.
+2. **If the user mentions or implies a project location** (e.g. "in my dashboard app", "in the ~/Projects/Foo project"), look there for the same files.
 
 3. **Use what you find** to self-answer questions about the stack, conventions, existing features, and domain terms before surfacing them as clarifying questions.
 
@@ -58,8 +58,8 @@ Do this silently. Do not narrate the research to the user. Just use the findings
 
 - Start by asking the user to describe their idea (or acknowledge what they've already shared).
 - Early in the conversation, determine `target_project_path`. **Use common sense first — don't blindly ask.**
-  - Check the current working directory. If it's anything other than the Claude global directory (`C:/Users/Ryan/.claude` or similar), the plan is almost certainly for the cwd — assume that and move on silently. 99% of the time this is right.
-  - If the cwd IS the Claude global directory, or the idea clearly references a different project (e.g. "in my dashboard app at D:/Projects/Foo"), or there's genuine ambiguity about where this belongs, then ask: "Where should the final project live? Give me the absolute path (e.g. `D:/Projects/My App`)."
+  - Check the current working directory. If it's anything other than the Claude global directory (`~/.claude` or similar), the plan is almost certainly for the cwd — assume that and move on silently. 99% of the time this is right.
+  - If the cwd IS the Claude global directory, or the idea clearly references a different project (e.g. "in my dashboard app at ~/Projects/Foo"), or there's genuine ambiguity about where this belongs, then ask: "Where should the final project live? Give me the absolute path (e.g. `~/Projects/My App`)."
   - When in doubt, ask. But don't ask just to confirm the obvious.
 - Iterate through clarifying questions — typically 3-5 rounds.
 - When the picture is clear, summarize the full feature back to the user.
@@ -71,7 +71,7 @@ When the user signals satisfaction ("I'm happy with the plan", "looks good", "le
 
 **First — verify target path is set.** If `target_project_path` was never resolved (neither inferred from cwd nor provided by the user), ask:
 
-> "Before we wrap up — where does this project live? Give me the absolute path (e.g. `D:/Projects/My App`)."
+> "Before we wrap up — where does this project live? Give me the absolute path (e.g. `~/Projects/My App`)."
 
 Wait for the user to provide it, then continue.
 
@@ -142,7 +142,7 @@ Tell the user: `"No dev plan found — spinning up Architect. Stand by..."`
 
 Spawn an Architect subagent:
 - `model`: `sonnet`
-- `prompt`: `"You are a silent Architect agent. Read your instructions at C:/Users/Ryan/.claude/skills/opus-review/references/architect-prompt.md and execute them fully. The plan file is at [plan_path]. Append the Development Plan section to it. Do not interact with the user. Return when done."`
+- `prompt`: `"You are a silent Architect agent. Read your instructions at ~/.claude/skills/opus-review/references/architect-prompt.md and execute them fully. The plan file is at [plan_path]. Append the Development Plan section to it. Do not interact with the user. Return when done."`
 
 Wait for completion. Re-read the plan file. If `## Development Plan` still does not exist, tell the user: `"Architect subagent failed to produce a plan. Check the plan file and try again."` and stop.
 
@@ -152,7 +152,7 @@ Wait for completion. Re-read the plan file. If `## Development Plan` still does 
 
 Spawn an Opus Review subagent:
 - `model`: `opus`
-- `prompt`: `"Run /opus-review [plan_path]. If the skill is unavailable, read your full instructions at C:/Users/Ryan/.claude/skills/opus-review/SKILL.md and execute them. The plan file is at [plan_path]. Proceed autonomously."`
+- `prompt`: `"Run /opus-review [plan_path]. If the skill is unavailable, read your full instructions at ~/.claude/skills/opus-review/SKILL.md and execute them. The plan file is at [plan_path]. Proceed autonomously."`
 
 Wait for completion.
 
@@ -162,7 +162,7 @@ Tell the user: `"Opus Review complete. Handing off to Team Lead — standing by 
 
 Spawn a Team Lead subagent:
 - `model`: `sonnet`
-- `prompt`: `"Run /team-lead [plan_path]. If the skill is unavailable, read your full instructions at C:/Users/Ryan/.claude/skills/team-lead/SKILL.md and execute them. The plan file is at [plan_path]. Proceed autonomously."`
+- `prompt`: `"Run /team-lead [plan_path]. If the skill is unavailable, read your full instructions at ~/.claude/skills/team-lead/SKILL.md and execute them. The plan file is at [plan_path]. Proceed autonomously."`
 
 Wait for completion.
 
@@ -172,7 +172,7 @@ Tell the user: `"Execution complete. Handing off to QA Review — standing by fo
 
 Spawn a QA Review subagent:
 - `model`: `sonnet`
-- `prompt`: `"Run /qa-review [plan_path]. If the skill is unavailable, read your full instructions at C:/Users/Ryan/.claude/skills/qa-review/SKILL.md and execute them. The plan file is at [plan_path]. Proceed autonomously."`
+- `prompt`: `"Run /qa-review [plan_path]. If the skill is unavailable, read your full instructions at ~/.claude/skills/qa-review/SKILL.md and execute them. The plan file is at [plan_path]. Proceed autonomously."`
 
 ---
 

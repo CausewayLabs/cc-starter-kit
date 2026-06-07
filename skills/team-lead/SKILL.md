@@ -20,7 +20,7 @@ The plan file path is provided as the skill argument. If no path was given, ask 
 
 Read the `## Development Plan` section of the plan file to get the task list. The `target_project_path` is the project directory where work is implemented — infer it from context or from the plan file's location (typically the parent directory of `plans/`). Confirm with the user if ambiguous.
 
-Read the escalation protocol at `C:/Users/Ryan/.claude/skills/team-lead/references/escalation-protocol.md` before beginning.
+Read the escalation protocol at `~/.claude/skills/team-lead/references/escalation-protocol.md` before beginning.
 
 ## Execution Process
 
@@ -60,7 +60,7 @@ git -C "[target_project_path]" worktree add .worktrees/task-002 -b task/002
 Spawn ALL parallel developer agents in a **single message** (multiple Agent tool calls). Each agent receives:
 - `model`: per the plan's assignment
 - `description`: `"Developer: TASK-XXX - [task name]"`
-- `prompt`: filled from `C:/Users/Ryan/.claude/skills/team-lead/references/developer-prompt.md` with:
+- `prompt`: filled from `~/.claude/skills/team-lead/references/developer-prompt.md` with:
   - Task details (ID, name, description, scope, acceptance criteria)
   - `plan_path` = the plan file path
   - `working_dir` = `[target_project_path]/.worktrees/task-xxx`

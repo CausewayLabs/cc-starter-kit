@@ -41,10 +41,10 @@ confirm in one short message rather than interrogating the user.
 1. **Project name** — used for the root folder and substituted into the memory
    files. If not given, ask.
 
-2. **Parent directory** — where the project root will be created. Default to
-   `D:\Projects` (Ryan's standard projects home; the other valid home is
-   `C:\Users\Ryan\Documents\Claude Cowork`). The project root will be
-   `<parent>\<project-name>`.
+2. **Parent directory** — where the project root will be created. Default to a
+   `Projects` folder in the user's home directory (e.g. `~/Projects`); if it
+   doesn't exist or the user keeps projects elsewhere, ask. The project root will
+   be `<parent>/<project-name>`.
 
 3. **Code subfolder name** — default `app`. This is where all code will live.
    Run the clash check below before committing to it.

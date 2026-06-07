@@ -152,6 +152,13 @@
 
 <div class="wrap">
 
+  <div class="callout blue" style="margin-top:34px">
+    <strong>👋 Start here.</strong> You're already doing step one — reading this guide. Just scroll through it top to
+    bottom. When you're ready to actually get these tools onto your computer, the fastest path is to open Claude Code
+    and paste it this: <em>"Read https://github.com/CausewayLabs/cc-starter-kit and help me install these skills."</em>
+    Claude reads the repo and sets everything up with you. Full details in <a class="inline" href="#install">§8 Install</a>.
+  </div>
+
   <!-- 1. GIT -->
   <section id="git">
     <h2><span class="num">1</span>The Golden Rule: Use Git Liberally</h2>
@@ -378,6 +385,12 @@
         <tr><td><code>external/</code></td><td>Distilled notes from outside sources (docs, NotebookLM) — "what does THIS project need from THAT source."</td></tr>
       </table>
     </div>
+
+    <div class="card">
+      <h3>/next-plan — deciding what to build next <span class="trigger">"what's next" · "plan my next session"</span></h3>
+      <p>Once your project has a memory system with some work logged in it, <code>/next-plan</code> is how you start each session. It reads the spine, the subsystem docs, and the feature logs, then <b>picks the next sensibly-sized chunk of work</b> and writes it to <code>current-plan.md</code> as a step-by-step plan you can begin executing right away. It even tells you <em>why</em> it chose that work over everything else.</p>
+      <p style="margin-bottom:0">Think of it as the everyday counterpart to the big <code>/brainstorm</code> pipeline: use the <b>pipeline</b> to build a whole new feature from scratch, and <code>/next-plan</code> to <b>keep chipping away</b> at what's already logged — without having to remember where you left off or decide what matters most.</p>
+    </div>
   </section>
 
   <!-- 5. PIPELINE -->
@@ -485,15 +498,29 @@
       <li><b>Commit the result.</b> <span>Like what it built? <code>git commit</code>. Don't? <code>git reset --hard</code> and refine the brainstorm.</span></li>
       <li><b>Halfway through context?</b> <span><code>/handoff</code> → <code>/clear</code> → <code>/handoff-resume</code> and keep rolling, fresh and fast.</span></li>
     </ol>
+
+    <div class="callout green" style="margin-top:4px">
+      <strong>Day two and beyond:</strong> you won't re-scaffold every time. Most sessions just start with
+      <code>/next-plan</code> ("what should I work on next?") or <code>/handoff-resume</code> — then you work, commit,
+      and finish with <code>/wrapup</code>. The full brainstorm pipeline only comes out when you're building a brand-new feature.
+    </div>
   </section>
 
   <!-- 8. INSTALL -->
   <section id="install">
     <h2><span class="num">8</span>Install — Dropping These Skills In</h2>
-    <p class="lede">Skills live in one folder. Getting them is a clone-and-copy.</p>
+    <p class="lede">Two ways to do this: the easy way (let Claude do it) or the manual way (copy the folders yourself). Either is fine.</p>
 
     <div class="card">
-      <h3>Where skills go</h3>
+      <h3>The easy way — let Claude install them for you</h3>
+      <p>Open Claude Code anywhere and paste it this:</p>
+      <pre><code><span class="grn">Read https://github.com/CausewayLabs/cc-starter-kit and help me
+install these skills into my Claude skills folder.</span></code></pre>
+      <p style="margin-bottom:0">Because the repo is public, Claude can read it directly and then walk you through copying the skill folders into place. If anything goes sideways, just keep talking to it — "it didn't work," "I'm on a Mac," "where do these go?" — and it'll adapt.</p>
+    </div>
+
+    <div class="card">
+      <h3>Where skills go (if you'd rather do it by hand)</h3>
       <table>
         <tr><th>OS</th><th>Skills folder</th></tr>
         <tr><td>Windows</td><td><code>C:\Users\&lt;you&gt;\.claude\skills\</code></td></tr>
@@ -503,7 +530,7 @@
     </div>
 
     <div class="card">
-      <h3>The clone-and-copy</h3>
+      <h3>The manual way — clone and copy</h3>
       <pre><code><span class="cmt"># 1. Clone the repo I shared with you</span>
 git clone &lt;the-repo-url&gt; cc-starter-kit
 cd cc-starter-kit
@@ -520,10 +547,11 @@ cp -r skills/* ~/.claude/skills/
     </div>
 
     <div class="callout blue">
-      <strong>How I'm sending this to you:</strong> a <b>private GitHub repo</b>. Clone it once, and any time I
-      improve a skill you just run <code>git pull</code> to get the update. The skills reference some of my personal
-      paths (like <code>D:\Projects</code>) — feel free to edit the <code>SKILL.md</code> files to match your own setup.
-      When in doubt, just ask Claude: <em>"adapt these skills to my machine."</em>
+      <strong>Staying up to date:</strong> this is a <b>public GitHub repo</b>, so any time I improve a skill you can
+      grab the latest — just tell Claude <em>"git pull the starter-kit repo"</em> or re-run the easy-way step above.
+      The skill files use portable paths (<code>~/.claude/...</code>, <code>~/Projects/...</code>) so they should work
+      on your machine out of the box — but if anything assumes a setup you don't have, just ask Claude to
+      <em>"adapt these skills to my machine."</em>
     </div>
 
     <div class="callout green">

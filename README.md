@@ -14,11 +14,14 @@ A curated set of Claude Code skills and workflows, packaged for getting started 
 | `orchestrator` | Lighter delegation mode — Claude coordinates developer subagents and reviews their work. |
 | `handoff` / `handoff-resume` | Save and restore your place across sessions when the context window fills up. |
 | `wrapup` | End a session cleanly — updates project docs and commits everything in one step. |
+| `next-plan` | Just-in-time planner — reads your memory system and writes the next sensibly-scoped plan. |
 | `memory-init` / `memory-migrate` | The memory/task system `new-project` installs (dependencies — keep them). |
 
 ## Install
 
-Copy the skill folders into your Claude Code skills directory and restart:
+**Easiest:** open Claude Code and say *"Read https://github.com/CausewayLabs/cc-starter-kit and help me install these skills."* It'll read this repo and walk you through it.
+
+**Manual:** copy the skill folders into your Claude Code skills directory and restart:
 
 ```powershell
 # Windows (PowerShell)
@@ -34,8 +37,8 @@ Then try `/new-project` or `/brainstorm` inside Claude Code.
 
 ## Note on paths
 
-Some `SKILL.md` files reference personal paths (e.g. `D:\Projects`, `C:\Users\Ryan\...`).
-Edit them to match your own machine, or just ask Claude: *"adapt these skills to my setup."*
+The skill files use portable paths (`~/.claude/...`, `~/Projects/...`) so they should work on any machine.
+If a skill ever assumes a setup you don't have, just ask Claude: *"adapt these skills to my setup."*
 
 ## Golden rule
 

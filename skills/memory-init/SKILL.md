@@ -29,7 +29,7 @@ Before touching anything:
 
    > "This project already has memory artifacts. Run `/memory-migrate` instead — it handles existing layouts. `/memory-init` only scaffolds empty projects."
 
-4. Locate the **source templates**. They are bundled with this skill at `C:\Users\Ryan\.claude\skills\memory-init\templates\`. You need three files:
+4. Locate the **source templates**. They are bundled with this skill at `~/.claude/skills/memory-init/templates/`. You need three files:
    - `templates/CLAUDE.md` — the CLAUDE.md template (substitute `{{PROJECT_NAME}}` with the actual project name)
    - `templates/example-feature-log.md` — canonical feature log format reference
    - `templates/architecture-subdoc-stub.md` — boilerplate for future subsystem subdocs
@@ -132,15 +132,15 @@ Write every file below using the **exact content** specified. Do not invent sect
 
 ### `TARGET_DIR/memory/templates/example-feature-log.md`
 
-Copy verbatim from the bundled template at `C:\Users\Ryan\.claude\skills\memory-init\templates\example-feature-log.md`. Do not modify content.
+Copy verbatim from the bundled template at `~/.claude/skills/memory-init/templates/example-feature-log.md`. Do not modify content.
 
 ### `TARGET_DIR/memory/templates/architecture-subdoc-stub.md`
 
-Copy verbatim from the bundled template at `C:\Users\Ryan\.claude\skills\memory-init\templates\architecture-subdoc-stub.md`. Do not modify content.
+Copy verbatim from the bundled template at `~/.claude/skills/memory-init/templates/architecture-subdoc-stub.md`. Do not modify content.
 
 ### `TARGET_DIR/CLAUDE.md`
 
-Copy from `C:\Users\Ryan\.claude\skills\memory-init\templates\CLAUDE.md`, substituting `{{PROJECT_NAME}}` with the actual project name. All other content must be verbatim — do not add, remove, or reorder sections.
+Copy from `~/.claude/skills/memory-init/templates/CLAUDE.md`, substituting `{{PROJECT_NAME}}` with the actual project name. All other content must be verbatim — do not add, remove, or reorder sections.
 
 ---
 
