@@ -8,7 +8,7 @@
   :root{
     --bg:#0f1117; --panel:#171a23; --panel2:#1e222d; --border:#2a2f3c;
     --ink:#e7e9ee; --muted:#9aa3b2; --accent:#d97757; --accent2:#7aa2f7;
-    --green:#7ee787; --code:#0b0d12;
+    --green:#7ee787; --red:#f7768e; --code:#0b0d12;
     --radius:14px;
   }
   *{box-sizing:border-box}
@@ -18,7 +18,7 @@
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     line-height:1.6; font-size:16px;
   }
-  .wrap{max-width:920px; margin:0 auto; padding:0 24px 120px}
+  .wrap{max-width:940px; margin:0 auto; padding:0 24px 120px}
   header.hero{
     padding:72px 24px 56px; text-align:center;
     background:radial-gradient(120% 100% at 50% 0%, #1b2030 0%, var(--bg) 70%);
@@ -26,26 +26,27 @@
   }
   .hero .kicker{color:var(--accent); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:.72rem}
   .hero h1{font-size:2.6rem; margin:.4em 0 .2em; line-height:1.1}
-  .hero p{color:var(--muted); max-width:620px; margin:0 auto; font-size:1.08rem}
+  .hero p{color:var(--muted); max-width:640px; margin:0 auto; font-size:1.08rem}
   .hero .from{margin-top:22px; color:var(--muted); font-size:.9rem}
 
   nav.toc{
     position:sticky; top:0; z-index:10; backdrop-filter:blur(10px);
     background:rgba(15,17,23,.82); border-bottom:1px solid var(--border);
-    display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:12px 16px;
+    display:flex; flex-wrap:wrap; gap:4px; justify-content:center; padding:12px 16px;
   }
   nav.toc a{
-    color:var(--muted); text-decoration:none; font-size:.82rem; font-weight:600;
-    padding:6px 12px; border-radius:999px; transition:.15s;
+    color:var(--muted); text-decoration:none; font-size:.8rem; font-weight:600;
+    padding:6px 11px; border-radius:999px; transition:.15s;
   }
   nav.toc a:hover{color:var(--ink); background:var(--panel2)}
 
-  section{margin-top:56px; scroll-margin-top:70px}
+  section{margin-top:60px; scroll-margin-top:70px}
   h2{font-size:1.7rem; margin:0 0 6px; display:flex; align-items:center; gap:12px}
   h2 .num{
     font-size:.9rem; color:var(--accent); border:1px solid var(--accent);
     border-radius:8px; width:30px; height:30px; display:grid; place-items:center; flex:none; font-weight:700;
   }
+  h3.sub{font-size:1.15rem; margin:26px 0 0; color:var(--accent2)}
   .lede{color:var(--muted); margin:0 0 22px; font-size:1.02rem}
 
   .card{
@@ -56,7 +57,7 @@
   .card .trigger{color:var(--accent2); font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.85rem}
   .card p{margin:.6em 0; color:#cfd4de}
   .card ul{margin:.5em 0; padding-left:20px; color:#cfd4de}
-  .card li{margin:.25em 0}
+  .card li{margin:.3em 0}
 
   .callout{
     border-left:4px solid var(--accent); background:linear-gradient(90deg,rgba(217,119,87,.10),transparent);
@@ -98,14 +99,35 @@
   .steps li span{color:var(--muted)}
 
   table{width:100%; border-collapse:collapse; margin:14px 0; font-size:.92rem}
-  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--border)}
+  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top}
   th{color:var(--accent2); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em}
   td code{font-size:.82em}
+  td b{color:var(--ink)}
+
+  .twocol{display:flex; gap:14px; flex-wrap:wrap; margin:16px 0}
+  .twocol .col{flex:1 1 300px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--panel)}
+  .twocol .col.yes{border-top:3px solid var(--green)}
+  .twocol .col.no{border-top:3px solid var(--red)}
+  .twocol .col h4{margin:0 0 8px; font-size:.95rem}
+  .twocol .col.yes h4{color:var(--green)}
+  .twocol .col.no h4{color:var(--red)}
+  .twocol ul{margin:0; padding-left:18px; color:#cfd4de; font-size:.9rem}
+  .twocol li{margin:.35em 0}
+
+  .filetree{background:var(--code); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin:16px 0; overflow-x:auto}
+  .filetree pre{background:none; border:none; padding:0; margin:0}
+  .filetree .fn{color:#e3c8a8}
+  .filetree .an{color:var(--muted)}
 
   footer{margin-top:70px; padding-top:28px; border-top:1px solid var(--border); color:var(--muted); text-align:center; font-size:.86rem}
   a.inline{color:var(--accent2)}
   .pill{display:inline-block; background:var(--panel2); border:1px solid var(--border); border-radius:999px;
     padding:3px 11px; font-size:.76rem; color:var(--muted); margin:2px 4px 2px 0}
+  .gauge{display:flex; align-items:center; gap:14px; margin:14px 0; flex-wrap:wrap}
+  .bar{flex:1 1 280px; height:26px; border-radius:999px; border:1px solid var(--border); overflow:hidden; background:var(--panel2); position:relative}
+  .bar .fill{height:100%; width:50%; background:linear-gradient(90deg,var(--green),var(--accent)); }
+  .bar .mark{position:absolute; left:50%; top:-4px; bottom:-4px; width:2px; background:var(--ink)}
+  .gauge .lab{font-size:.85rem; color:var(--muted); font-weight:600}
 </style>
 </head>
 <body>
@@ -113,7 +135,7 @@
 <header class="hero">
   <div class="kicker">Claude Code · Starter Kit</div>
   <h1>Welcome to Claude Code</h1>
-  <p>A hand-picked set of workflows and skills to get you productive fast — plus the one habit that will save you more pain than anything else.</p>
+  <p>A hand-picked set of workflows and skills to get you productive fast — plus the habits and structure that keep a project legible as it grows.</p>
   <div class="from">Put together for you by Ryan 👋 · open this file in any browser, no internet needed</div>
 </header>
 
@@ -121,10 +143,11 @@
   <a href="#git">① Use Git</a>
   <a href="#what">② Skills 101</a>
   <a href="#new-project">③ new-project</a>
-  <a href="#pipeline">④ Brainstorm → Pipeline</a>
-  <a href="#handoff">⑤ Handoff</a>
-  <a href="#flow">⑥ A Day In The Life</a>
-  <a href="#install">⑦ Install</a>
+  <a href="#memory">④ The Memory System</a>
+  <a href="#pipeline">⑤ Brainstorm → Pipeline</a>
+  <a href="#handoff">⑥ Handoff</a>
+  <a href="#flow">⑦ A Day In The Life</a>
+  <a href="#install">⑧ Install</a>
 </nav>
 
 <div class="wrap">
@@ -182,11 +205,11 @@ git checkout -b try-new-idea</code></pre>
       <p>Each skill is just a <code>SKILL.md</code> file living in <code>~/.claude/skills/&lt;name&gt;/</code>.
       When your words match a skill's description, Claude pulls in that playbook and follows it. You don't install anything special —
       you drop the folders in place (see <a class="inline" href="#install">Install</a>) and they're available everywhere.</p>
-      <p style="margin-bottom:0">This kit hands you four workflows that work together:</p>
+      <p style="margin-bottom:0">This kit hands you a few workflows that build on each other:</p>
       <div style="margin-top:10px">
-        <span class="pill">/new-project — scaffold a clean repo</span>
-        <span class="pill">/brainstorm — refine an idea into a plan</span>
-        <span class="pill">the agent pipeline — build it for you</span>
+        <span class="pill">/new-project — scaffold a clean repo + memory system</span>
+        <span class="pill">the memory system — how the project stays legible</span>
+        <span class="pill">/brainstorm → the agent pipeline — build it for you</span>
         <span class="pill">/handoff + /handoff-resume — never lose your place</span>
       </div>
     </div>
@@ -201,28 +224,152 @@ git checkout -b try-new-idea</code></pre>
       <h3>/new-project <span class="trigger">"set up a new project" · "spin up a new app"</span></h3>
       <p>It creates a clean project root with a deliberate idea baked in: <b>separate the project's "mind" from its "body."</b></p>
       <ul>
-        <li><b>The root stays code-free</b> — it holds notes, docs, a <code>CLAUDE.md</code> (project instructions), git, and a <code>run.bat</code> one-command launcher.</li>
+        <li><b>The root stays code-free</b> — it holds the memory system, a <code>CLAUDE.md</code>, a <code>.context.md</code> router, git, and a <code>run.bat</code> one-command launcher.</li>
         <li><b>All real code lives one folder down</b> (default <code>app/</code>) so build clutter never tangles with your docs.</li>
         <li>It runs <code>git init</code> and writes a sensible <code>.gitignore</code> for you.</li>
-        <li>It deliberately <em>doesn't</em> scaffold the framework — that's your next step, on purpose.</li>
+        <li>Under the hood it calls <code>/memory-init</code> to install the memory system — that's section 4, and it's the part worth understanding well.</li>
       </ul>
-      <p style="margin-bottom:0">You end up with an oriented, ready-to-build shell instead of an empty folder and a blank stare.</p>
+      <p style="margin-bottom:0">It deliberately <em>doesn't</em> scaffold the framework itself (no <code>create-next-app</code>) — that's your next step, on purpose. You get an oriented shell, not an empty folder.</p>
     </div>
 
-    <div class="card">
-      <h3>What you get</h3>
-      <pre><code>my-project/
-├── .context.md      <span class="cmt"># the "read me first" for any agent</span>
-├── CLAUDE.md        <span class="cmt"># project-specific instructions</span>
-├── run.bat          <span class="cmt"># single-command launcher</span>
-├── memory/          <span class="cmt"># notes, logs, plans, handoffs</span>
-└── app/             <span class="cmt"># ← all your actual code lives here</span></code></pre>
+    <div class="filetree">
+<pre><span class="fn">my-project/</span>
+├── <span class="fn">.context.md</span>      <span class="an"># the "read me first" router</span>
+├── <span class="fn">CLAUDE.md</span>        <span class="an"># the agent operating manual</span>
+├── <span class="fn">run.bat</span>          <span class="an"># single-command launcher</span>
+├── <span class="fn">memory/</span>          <span class="an"># the whole memory system (see §4)</span>
+└── <span class="fn">app/</span>             <span class="an"># ← all your actual code lives here</span></pre>
     </div>
   </section>
 
-  <!-- 4. PIPELINE -->
+  <!-- 4. MEMORY SYSTEM -->
+  <section id="memory">
+    <h2><span class="num">4</span>The Memory System — What Goes Where</h2>
+    <p class="lede">This is the part that pays off most over time. The memory system is how a project stays understandable — to you, and to a fresh Claude session that has zero memory of last week.</p>
+
+    <div class="callout green">
+      <strong>First, the relief: you don't have to manage this by hand.</strong> When you run <code>/new-project</code>
+      (or <code>/memory-init</code>), every one of these files is created <em>pre-seeded with the instructions Claude
+      needs to maintain them itself.</em> The <code>CLAUDE.md</code> it writes literally tells Claude how to log tasks,
+      where to file decisions, and when to promote things. <b>In normal use you just work, and Claude keeps the memory
+      system tidy in the background.</b> So why read the rest of this section? Because knowing the structure lets you
+      <strong>spot when Claude drifts</strong> — files a decision in the wrong place, or lets a log entry that should be
+      permanent truth rot as a receipt — and <em>course-correct it with one sentence.</em> You're the editor, not the filing clerk.
+    </div>
+
+    <div class="callout blue">
+      <strong>The one mental model:</strong> separate the <em>permanent truth</em> of the system (what it is, why it's shaped this way, what must always hold) from the <em>disposable history</em> of work (what's queued, what just changed). The first is the <strong>charter</strong> — it's load-bearing and you protect it. The second is <strong>receipts</strong> — useful logs, but throwaway. The skill below is keeping these from blurring together.
+    </div>
+
+    <div class="filetree">
+<pre><span class="fn">my-project/</span>
+├── <span class="fn">.context.md</span>                     <span class="an"># ROUTER — read first, indexes everything</span>
+├── <span class="fn">CLAUDE.md</span>                       <span class="an"># OPERATING MANUAL — how we work here</span>
+└── <span class="fn">memory/</span>
+    ├── <span class="fn">architecture/</span>
+    │   ├── <span class="fn">architecture.md</span>          <span class="an"># THE SPINE / CHARTER — what & why</span>
+    │   ├── <span class="fn">&lt;subsystem&gt;.md</span>           <span class="an"># subsystem design (charter, extended)</span>
+    │   └── <span class="fn">&lt;subsystem&gt;-log.md</span>       <span class="an"># feature log — RECEIPTS (queued/done)</span>
+    ├── <span class="fn">Codebase Guide.md</span>            <span class="an"># where code lives + invariants</span>
+    ├── <span class="fn">Glossary.md</span>                  <span class="an"># domain vocabulary</span>
+    ├── <span class="fn">current-plan.md</span>              <span class="an"># the active plan (/next-plan writes it)</span>
+    ├── <span class="fn">task-feedback.md</span>             <span class="an"># tuning log for auto-capture</span>
+    ├── <span class="fn">handoffs/</span>                    <span class="an"># session-continuity docs (see §6)</span>
+    └── <span class="fn">external/</span>                    <span class="an"># distilled outside sources</span></pre>
+    </div>
+
+    <h3 class="sub">The five files you'll actually think about</h3>
+
+    <div class="card">
+      <h3><code>.context.md</code> — the router <span class="trigger">(project root)</span></h3>
+      <p>The "read me first" for the whole project. It's <b>pointers and orientation, not deep content</b>: a one-line tagline, index tables that say where every other file lives, and a Commands table (install / run / test / build). Any fresh session reads this first and instantly knows the lay of the land.</p>
+      <p style="margin-bottom:0"><b>Belongs here:</b> the tagline, the file index, the run/test/build commands. <b>Not here:</b> actual design reasoning or task lists — those just get <em>linked</em> from here.</p>
+    </div>
+
+    <div class="card">
+      <h3><code>CLAUDE.md</code> — the operating manual <span class="trigger">(project root)</span></h3>
+      <p>Claude reads this at the start of every session. It's the <b>"how we work in this repo" rulebook</b>: stable conventions like the planning workflow, how tasks get captured, the feature-log format, the session-start checklist. It is deliberately <em>stable</em> — it describes <b>process, not state</b>.</p>
+      <div class="twocol">
+        <div class="col yes">
+          <h4>✓ Belongs in CLAUDE.md</h4>
+          <ul>
+            <li>Conventions & rules ("always read .context.md first")</li>
+            <li>How planning works, how tasks are logged</li>
+            <li>Formats the project follows</li>
+            <li>Coding standards specific to this repo</li>
+          </ul>
+        </div>
+        <div class="col no">
+          <h4>✗ Does NOT belong</h4>
+          <ul>
+            <li>What you're building right now (that's a plan/log)</li>
+            <li>A changelog or roadmap</li>
+            <li>The actual architecture (that's the spine)</li>
+            <li>Anything that changes week to week</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-bottom:0">Rule of thumb: if it would be true six months from now regardless of what you build, it's CLAUDE.md material.</p>
+    </div>
+
+    <div class="card">
+      <h3><code>memory/architecture/architecture.md</code> — the spine (charter) </h3>
+      <p>The conceptual <b>constitution</b> of the project. Two things at the top level: a 2–3 sentence <b>System Purpose</b> (what this is and why it exists) and a <b>list of subsystems</b>. It answers <em>what the system is and why it's shaped the way it is</em> — not how the code is laid out.</p>
+      <p style="margin-bottom:0">It's called the charter because <b>every decision must be congruent with it.</b> If a request conflicts with the charter, the right move is to stop and surface the tension — not quietly drift. This is the document an agent trusts above all others.</p>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;subsystem&gt;.md</code> + <code>&lt;subsystem&gt;-log.md</code> — subdocs & their logs</h3>
+      <p>As real subsystems emerge (auth, billing, the rendering engine…), each gets a <b>pair</b> of files in <code>memory/architecture/</code>. You don't pre-create these — they're born when a subsystem becomes real.</p>
+      <table>
+        <tr><th>File</th><th>What it holds</th></tr>
+        <tr>
+          <td><code>&lt;subsystem&gt;.md</code><br><b>(charter)</b></td>
+          <td>Prose describing the subsystem's <b>design and the <em>why</em> behind it</b>: its purpose, the boundary it owns, the major decisions and their rationale. This is permanent truth — read it before touching that area.</td>
+        </tr>
+        <tr>
+          <td><code>&lt;subsystem&gt;-log.md</code><br><b>(receipts)</b></td>
+          <td>A checklist of work items — <b>planned and completed tasks</b>, dated, with completed ones carrying a short "decision: chose X over Y because Z" note. This is the "what's queued / what just changed" log. <b>Receipts, not documentation.</b></td>
+        </tr>
+      </table>
+      <p style="margin:.8em 0 .3em">A log entry looks like this:</p>
+      <pre><code><span class="cmt">## Core Rendering</span>
+- [x] (planned: 2026-01-10, completed: 2026-01-18) Implement draw loop
+      — decision: chose retained-mode over immediate-mode because deep
+      widget trees caused jitter redrawing every frame.
+- [ ] (planned: 2026-02-05) Add animation easing presets</code></pre>
+    </div>
+
+    <div class="card">
+      <h3><code>memory/Codebase Guide.md</code> — where + what-must-hold</h3>
+      <p>The companion to the spine. Where architecture answers <em>why</em>, this answers <b>where the code lives</b> (the layout) and <b>what invariants must always hold</b> (rules the system depends on — "all timestamps are UTC", "the API layer never imports from the UI layer").</p>
+    </div>
+
+    <div class="callout">
+      <strong>The promotion test — the habit that keeps docs healthy.</strong>
+      Feature logs are receipts; the charter is truth. When a completed task contains a real decision, ask:
+      <em>"if this sentence vanished from the architecture doc, could a future agent steer the system wrong?"</em>
+      If yes → <b>promote it</b> up into the subsystem doc (rationale) or the Codebase Guide (invariants).
+      If no → leave it in the log as a receipt. The goal: an agent reading only the charter + Codebase Guide, with
+      <em>no logs at all</em>, should still make good decisions. (The <code>/memory-log-review</code> skill walks the logs and applies this test in batch.)
+    </div>
+
+    <div class="card">
+      <h3>The supporting cast (lighter touch)</h3>
+      <table>
+        <tr><th>File</th><th>Role</th></tr>
+        <tr><td><code>Glossary.md</code></td><td>Domain/business vocabulary — terms with a specific meaning in this project.</td></tr>
+        <tr><td><code>current-plan.md</code></td><td>The single active plan. The <code>/next-plan</code> skill writes it; you tick off steps as you go. Overwritten each time you plan the next chunk.</td></tr>
+        <tr><td><code>task-feedback.md</code></td><td>When Claude auto-logs a task wrong and you correct it, the correction lands here so its instincts improve.</td></tr>
+        <tr><td><code>handoffs/</code></td><td>Where <code>/handoff</code> docs live (section 6).</td></tr>
+        <tr><td><code>external/</code></td><td>Distilled notes from outside sources (docs, NotebookLM) — "what does THIS project need from THAT source."</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5. PIPELINE -->
   <section id="pipeline">
-    <h2><span class="num">4</span>/brainstorm → The Agent Pipeline</h2>
+    <h2><span class="num">5</span>/brainstorm → The Agent Pipeline</h2>
     <p class="lede">This is the headline feature. You start with a fuzzy idea; a relay team of AI agents turns it into working code — each agent doing one job well, with you in the driver's seat at the start.</p>
 
     <div class="card">
@@ -272,16 +419,29 @@ git checkout -b try-new-idea</code></pre>
     </div>
   </section>
 
-  <!-- 5. HANDOFF -->
+  <!-- 6. HANDOFF -->
   <section id="handoff">
-    <h2><span class="num">5</span>/handoff + /handoff-resume — Never Lose Your Place</h2>
-    <p class="lede">Long sessions fill up Claude's context window. These two skills let you reset with zero loss of momentum.</p>
+    <h2><span class="num">6</span>/handoff + /handoff-resume — Never Lose Your Place</h2>
+    <p class="lede">Long sessions fill up Claude's context window — the amount it can "hold in its head" at once. As it fills, responses get slower and details slip. These two skills let you reset to an empty window with zero loss of momentum.</p>
+
+    <div class="callout green">
+      <strong>When to reach for it — the 50% rule.</strong> Ryan's habit: fire <code>/handoff</code> at around
+      <strong>50% context-window usage</strong>. Don't wait until it's nearly full and degraded — hand off while the
+      session is still sharp and remembers everything clearly. Half-full is the sweet spot.
+    </div>
+
+    <div class="gauge">
+      <span class="lab">0%</span>
+      <div class="bar"><div class="fill"></div><div class="mark"></div></div>
+      <span class="lab">100%</span>
+    </div>
+    <p class="lede" style="margin-top:-4px; font-size:.9rem">↑ The white line is ~50% — that's your cue to <code>/handoff</code>, not the far right edge.</p>
 
     <div class="card">
       <h3>/handoff <span class="trigger">"context is filling up" · "save my place"</span></h3>
       <p>Writes a dense, self-contained <b>handoff document</b> capturing everything a fresh agent needs: what the project is,
       what you were doing and why, exactly where things stand, what's left (as a checklist), key files, and any gotchas or decisions.
-      Saved to <code>memory/handoff/YYYY-MM-DD-HHMM.md</code>.</p>
+      Saved to <code>memory/handoffs/YYYY-MM-DD-HHMM.md</code>.</p>
     </div>
 
     <div class="card">
@@ -293,28 +453,30 @@ git checkout -b try-new-idea</code></pre>
     <div class="callout">
       <strong>The loop:</strong>
       <code>/handoff</code> &nbsp;→&nbsp; <code>/clear</code> &nbsp;→&nbsp; <code>/handoff-resume</code>.
-      Your context window resets to empty, but your <em>work</em> picks up exactly where it left off. Use this whenever Claude starts feeling sluggish or forgetful.
+      Your context window resets to empty, but your <em>work</em> picks up exactly where it left off.
+      <code>/clear</code> is the built-in command that wipes the session's memory — the handoff doc is what survives it.
     </div>
   </section>
 
-  <!-- 6. FLOW -->
+  <!-- 7. FLOW -->
   <section id="flow">
-    <h2><span class="num">6</span>A Day In The Life — Putting It Together</h2>
+    <h2><span class="num">7</span>A Day In The Life — Putting It Together</h2>
     <p class="lede">Here's how the pieces chain into one smooth workflow, from empty folder to shipped feature.</p>
 
     <ol class="steps">
-      <li><b>Scaffold it.</b> <span>Run <code>/new-project</code> to get a clean, git-initialized repo with the right bones.</span></li>
+      <li><b>Scaffold it.</b> <span>Run <code>/new-project</code> — clean repo, git initialized, memory system installed.</span></li>
       <li><b>Commit the skeleton.</b> <span>"Commit this as the initial scaffold." Now you have a safe baseline.</span></li>
+      <li><b>Fill in the charter.</b> <span>Write a couple sentences of System Purpose in <code>architecture.md</code> and your run command in <code>.context.md</code>. Five minutes, huge payoff later.</span></li>
       <li><b>Brainstorm the feature.</b> <span>Run <code>/brainstorm</code>. Answer the questions honestly — this is where your real input matters most.</span></li>
       <li><b>Approve & let it run.</b> <span>Say "go." The pipeline architects → reviews → builds → QAs while you watch.</span></li>
       <li><b>Commit the result.</b> <span>Like what it built? <code>git commit</code>. Don't? <code>git reset --hard</code> and refine the brainstorm.</span></li>
-      <li><b>Running low on context?</b> <span><code>/handoff</code> → <code>/clear</code> → <code>/handoff-resume</code> and keep rolling.</span></li>
+      <li><b>Halfway through context?</b> <span><code>/handoff</code> → <code>/clear</code> → <code>/handoff-resume</code> and keep rolling, fresh and fast.</span></li>
     </ol>
   </section>
 
-  <!-- 7. INSTALL -->
+  <!-- 8. INSTALL -->
   <section id="install">
-    <h2><span class="num">7</span>Install — Dropping These Skills In</h2>
+    <h2><span class="num">8</span>Install — Dropping These Skills In</h2>
     <p class="lede">Skills live in one folder. Getting them is a clone-and-copy.</p>
 
     <div class="card">
