@@ -155,44 +155,57 @@
   <!-- 1. GIT -->
   <section id="git">
     <h2><span class="num">1</span>The Golden Rule: Use Git Liberally</h2>
-    <p class="lede">If you remember one thing from this whole document, make it this one.</p>
+    <p class="lede">If you remember one thing from this whole document, make it this one. And here's the good news — you don't actually have to <em>learn</em> git. You just have to know what it's <em>for</em>, and tell Claude to do it.</p>
 
     <div class="callout">
       <strong>Commit early, commit often.</strong> Claude Code edits real files on your machine.
       It is fast, capable, and occasionally confidently wrong. Git is your undo button, your safety net,
-      and your time machine. A clean commit before you start means any mess is one command away from being erased.
+      and your time machine. The whole trick is to <em>just ask Claude</em> — "commit this," "save my progress" —
+      and it handles the actual commands. You never need to memorize them.
     </div>
 
     <div class="card">
-      <h3>Why it matters more with an AI agent</h3>
+      <h3>First, git vs. GitHub — they're not the same thing</h3>
+      <p>People use these interchangeably, but they're different:</p>
       <ul>
-        <li><b>It moves fast.</b> Claude can touch a dozen files in one turn. Without commits, "undo" doesn't exist.</li>
-        <li><b>It lets you be bold.</b> When you can always roll back, you can let Claude try the ambitious thing.</li>
-        <li><b>It gives Claude context.</b> A clean history and good messages help future sessions understand what happened and why.</li>
+        <li><b>Git</b> is the tool running <em>on your computer</em> that tracks the history of your files — every saved snapshot lives right there on your machine, no internet needed.</li>
+        <li><b>GitHub</b> is a <em>website</em> where you can push a copy of that history to the cloud — for backup, or to share with someone (it's how you got this kit).</li>
       </ul>
+      <p style="margin-bottom:0">For day-to-day work, <b>git is the part that matters.</b> GitHub is just where it goes to be backed up or shared later.</p>
     </div>
 
     <div class="card">
-      <h3>The rhythm to build into muscle memory</h3>
-      <pre><code><span class="cmt"># Before you start a task — make sure you're clean</span>
-git status
-
-<span class="cmt"># Made progress you'd hate to lose? Snapshot it.</span>
-git add -A
-git commit -m "Add login form and validation"
-
-<span class="cmt"># Claude went sideways? Throw away uncommitted changes:</span>
-git restore .            <span class="cmt"># discard unstaged edits</span>
-git reset --hard HEAD    <span class="cmt"># nuke everything back to last commit</span>
-
-<span class="cmt"># Trying something risky? Branch first, merge only if it works.</span>
-git checkout -b try-new-idea</code></pre>
-      <p style="margin-bottom:0">You don't need to be a git wizard. <code>status</code>, <code>add</code>, <code>commit</code>, and <code>reset --hard</code> cover 95% of daily life.</p>
+      <h3>The only concept you truly need: the commit</h3>
+      <p>A <b>commit</b> is a saved snapshot of your whole project at a moment in time. That's it. Every time you commit, git remembers exactly what everything looked like — and you can always go back.</p>
+      <p>This is your <b>undo button.</b> In fact, it's exactly what saved us earlier in this very session: each time we improved this guide, I committed it. If a change had gone wrong, we could have rewound to the previous snapshot in one step — nothing lost.</p>
+      <p style="margin-bottom:0">So the habit is simple: <b>when you've made progress you'd hate to lose, tell Claude "commit this."</b> Do it often. Small, frequent snapshots mean any mistake is never more than a moment's worth of work away from being erased.</p>
     </div>
 
     <div class="callout green">
-      <strong>Tip:</strong> Just <em>tell Claude</em> to do it — "commit this with a good message" or
-      "create a branch before you start." It knows git. Your job is to remember to ask.
+      <strong>If something goes sideways, you can always undo — just ask.</strong> Say
+      <em>"undo that, go back to the last commit"</em> or <em>"revert the last change."</em> As long as you've been
+      committing along the way, Claude can walk it back for you. You don't need to know the command — you just need
+      to know that the safety net <em>exists,</em> and that committing often is what keeps it under you.
+    </div>
+
+    <div class="card">
+      <h3>A few more words worth recognizing (so you know what to ask for)</h3>
+      <p>You don't need to run these — but knowing the words exist means you can ask Claude for them by name when the moment comes:</p>
+      <table>
+        <tr><th>Word</th><th>What it's for</th></tr>
+        <tr><td><b>diff</b></td><td>"Show me what changed." Ask for a diff when you want to <em>see</em> exactly what Claude edited before committing.</td></tr>
+        <tr><td><b>branch</b></td><td>A parallel copy to try something risky without touching your main work. "Make a branch before you try this."</td></tr>
+        <tr><td><b>worktree</b></td><td>Like a branch, but checked out in its own folder — handy for working on two things at once. "Spin this up in a worktree."</td></tr>
+        <tr><td><b>reset</b></td><td>The big undo — throw away changes and snap back to a previous commit. "Reset to the last commit."</td></tr>
+      </table>
+      <p style="margin-bottom:0">That's the whole vocabulary. <b>Commit</b> is the one that matters; the rest are just things to ask for by name when you need them.</p>
+    </div>
+
+    <div class="callout blue">
+      <strong>Make it automatic: the /wrapup skill.</strong> When you're done for the day, just run
+      <code>/wrapup</code>. It updates your project docs <em>and</em> commits everything in one move — so you end
+      every session with a clean snapshot saved, without even having to remember to ask. It's the easiest way to
+      build the "commit often" habit: let the skill do it for you at the end of each session.
     </div>
   </section>
 

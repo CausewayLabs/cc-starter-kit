@@ -13,6 +13,7 @@ A curated set of Claude Code skills and workflows, packaged for getting started 
 | `opus-review` / `team-lead` / `qa-review` | The agent-pipeline phases: plan review → build → QA. Driven automatically by `brainstorm`. |
 | `orchestrator` | Lighter delegation mode — Claude coordinates developer subagents and reviews their work. |
 | `handoff` / `handoff-resume` | Save and restore your place across sessions when the context window fills up. |
+| `wrapup` | End a session cleanly — updates project docs and commits everything in one step. |
 | `memory-init` / `memory-migrate` | The memory/task system `new-project` installs (dependencies — keep them). |
 
 ## Install
